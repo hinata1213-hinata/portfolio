@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コミュニティ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- ヘッダー -->
+  <header class="site-header" id="header">
+  </header>
+
+  <!-- パーティクル背景 -->
+  <div class="particles" id="particles"></div>
+
+  <!-- ヘッダー -->
+  <header class="site-header" id="header">
+  </header>
+
+  <h1>六刻巡旅 - コミュニティ</h1>
+  <h2>検索</h2>
+  <aside>
+    <form action="search.php" method="post">
+      <input type="text" name="search_name" placeholder="名前で検索">
+      <input type="submit" name="submit" value="検索">
+    </form>
+
+    <h2>新規投稿</h2>
+    <form method="post" action="">
+      <p>
+        <label for="title">タイトル:</label>
+        <input type="text" id="title" name="title" placeholder="タイトルを入力" required>
+      </p>
+      <p>
+        <label for="name">名前:</label>
+        <input type="text" name="name" placeholder="名前を入力（匿名可）">
+      </p>
+      <p>
+        <label for="content">内容:</label>
+        <textarea id="content" name="content" rows="5" placeholder="謎解きのヒントや感想を共有しよう..."></textarea>
+      </p>
+      <button type="submit">投稿する</button>
+    </form>
+
+  </aside>
+
+  <h2>みんなの投稿</h2>
+  <div class="posts">
+
+    <!-- フッター -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="legal/privacy.html">プライバシーポリシー</a>
+          <a href="legal/terms-of-service.html">利用規約</a>
+          <a href="community/confirm/confirm.html">お問い合わせ</a>
+        </div>
+        <div class="copyright">
+          &copy; 2025 六刻巡旅 - All rights reserved
+        </div>
+      </div>
+    </footer>
+    <script src="community.js"></script>
+</body>
+
+</html>

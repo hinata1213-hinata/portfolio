@@ -1,0 +1,5 @@
+#RewriteEngine On
+
+# boardディレクトリ以下のファイルのみアクセス許可
+#RewriteCond %{REQUEST_URI} !^/board/
+#RewriteRule .* - [F]

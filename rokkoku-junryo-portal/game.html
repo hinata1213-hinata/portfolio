@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>六刻巡旅 - 体験型ノベル</title>
+	<link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+	<!-- ローディング画面 -->
+	<div class="loading-screen" id="loadingScreen" style="display: none;">
+		<div class="loading-text">六刻巡旅</div>
+	</div>
+
+	<!-- パーティクル背景 -->
+	<div class="particles" id="particles"></div>
+
+	<!-- ヘッダー -->
+	<header class="site-header" id="header">
+	</header>
+
+	<!-- タイトルセクション -->
+	<section class="title-section" id="title">
+		<div class="title-content">
+			<p class="genre-tag">伝奇ホラー<br>サウンドノベルゲーム</p>
+			<h1 class="main-title">六刻巡旅</h1>
+			<p class="subtitle">どうかRokkokuJunryoと発音してください</p>
+			<div class="scroll-indicator">
+				<span class="scroll-arrow">↓</span>
+				<p class="scroll-text">スクロールして続きを読む</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- プロモーション動画セクション -->
+	<section class="synopsis-section" id="synopsis">
+		<div class="synopsis-content">
+			<h2 class="section-title synopsis-title">あらすじ</h2>
+			<div class="video-container scroll-reveal">
+				<video controls class="promo-video" preload="metadata">
+					<source src="Images/1.mov" type="video/mp4">
+					お使いのブラウザは動画タグをサポートしていません。
+				</video>
+			</div>
+			<p class="video-caption">六刻の旅へ、ようこそ——</p>
+		</div>
+	</section>
+
+	<!-- ゲーム機能セクション -->
+	<section class="features-section">
+		<div class="features-container">
+			<h2 class="section-title">このゲームについて</h2>
+			<div class="features-grid">
+				<div class="feature-card scroll-reveal">
+					<div class="feature-icon">💔</div>
+					<div class="feature-title">伝奇ホラーサウンドノベル</div>
+					<div class="feature-desc">愛する者を救うための物語。深い愛情と恐怖が交錯する、切なく美しいホラー体験。</div>
+				</div>
+				<div class="feature-card scroll-reveal">
+					<div class="feature-icon">⚖️</div>
+					<div class="feature-title">代償を伴う選択</div>
+					<div class="feature-desc">寿命、記憶、感情――何を差し出すか。あなたの選択が物語の結末を大きく変える。</div>
+				</div>
+				<div class="feature-card scroll-reveal">
+					<div class="feature-icon">🌃</div>
+					<div class="feature-title">マルチエンディング</div>
+					<div class="feature-desc">True End、Bitter Sweet End、Normal End、Bad Endなど７種類以上のエンディング。あなたの愛の形は？</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ダウンロードセクション -->
+	<section class="download-section">
+		<div class="download-container">
+			<h2 class="section-title">ゲームをダウンロード</h2>
+			<div class="playtime-bubble">
+				<div class="bubble-icon">⏱️</div>
+				<div class="bubble-text">
+					<span class="bubble-highlight">10〜15分</span>で完結する濃密な物語
+				</div>
+			</div>
+			<div class="download-content scroll-reveal">
+				<div class="download-info">
+					<div class="download-icon">🎮</div>
+					<h3 class="download-title">六刻巡旅 - ver.6</h3>
+					<p class="download-date">2025/11/25</p>
+					<p class="download-description">
+						ゲームをダウンロードして、<br>
+						恋人を救うための六刻の旅を体験してください。
+					</p>
+					<div class="download-features">
+						<div class="download-feature">
+							<span class="feature-check">✓</span>
+							<span>選択肢によって変化するストーリー</span>
+						</div>
+						<div class="download-feature">
+							<span class="feature-check">✓</span>
+							<span>7種類のエンディング</span>
+						</div>
+					</div>
+				</div>
+				<a href="六刻巡旅 ver.6.zip" class="download-button" download>
+					<span class="button-icon">⬇️</span>
+					<span class="button-text">六刻巡旅 ver.6.zipをダウンロード</span>
+					<span class="button-subtext">Windows対応</span>
+				</a>
+				<div class="extract-guide">
+					<h4 class="extract-title">ダウンロード後の手順</h4>
+					<ol class="extract-steps">
+						<li>ダウンロードしたZIPファイルを右クリック</li>
+						<li>「すべて展開...」を選択</li>
+						<li>展開先を選んで「展開」をクリック</li>
+						<li>展開されたフォルダ内の「六刻巡旅.exe」をダブルクリックで起動</li>
+					</ol>
+					<div class="security-warning">
+						<h4 class="security-title">■ セキュリティ警告について</h4>
+						<p>初回起動時に<br>「WindowsによってPCが保護されました」<br>と表示される場合があります。</p>
+						<p>その場合は<br>「詳細情報」→「実行」<br>を選択してください。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- コミュニティセクション -->
+	<section class="community-section">
+		<div class="community-container">
+			<h2 class="section-title">コミュニティ</h2>
+			<div class="status-text">永久開放</div>
+			<div class="community-content">
+				<p class="community-description">
+					旅人たちが記憶の断片を考察する場所。<br>
+					<span style="color: #0066CC; font-weight: 600;">ただし、核心に触れることは禁ずる。</span>
+				</p>
+				<a href="community/rooms/index.php" class="community-button">
+					<span class="button-icon">💬</span>
+					<span class="button-text">話題の部屋へ入る</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- おまけセクション -->
+	<section class="bonus-section">
+		<div class="bonus-container">
+			<h2 class="section-title">おまけ</h2>
+			<div class="bonus-content">
+				<p class="bonus-description">
+					ゲームをクリアした者だけが読める物語。<br>
+					<span style="color: #0066CC; font-weight: 600;">合言葉を入力せよ。</span>
+				</p>
+				<a href="bonus/novel.php" class="bonus-button">
+					<span class="button-icon">📖</span>
+					<span class="button-text">小説版を読む</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- モーダル -->
+	<div class="modal" id="infoModal">
+		<div class="modal-content">
+			<span class="modal-close" onclick="closeModal()">&times;</span>
+			<h3 id="modalTitle" style="color: #0066CC; margin-bottom: 20px;">刻の情報</h3>
+			<p id="modalContent" style="line-height: 1.6;">ここに各刻の詳細情報が表示されます。</p>
+		</div>
+	</div>
+
+	<!-- フッター -->
+	<footer class="footer">
+		<div class="footer-content">
+			<div class="copyright-large">
+				&copy; 2025 六刻巡旅 - All rights reserved
+			</div>
+		</div>
+	</footer>
+	<script src="game.js"></script>
+</body>
+
+</html>
