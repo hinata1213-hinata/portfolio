@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hinataのポートフォリオ — Webアプリ・ゲーム・アルゴリズムを制作するソフトウェアエンジニア">
+  <title>Hinata | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <header class="header" id="header">
+    <nav class="nav">
+      <a href="#profile" class="nav-logo">Hinata</a>
+      <ul class="nav-links">
+        <li><a href="#works"    class="nav-link">Works</a></li>
+        <li><a href="#skills"   class="nav-link">Skills</a></li>
+        <li><a href="#activity" class="nav-link">Activity</a></li>
+        <li><a href="#contact"  class="nav-link">Contact</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="drawer" id="drawer">
+      <a href="#works"    class="drawer-link">Works</a>
+      <a href="#skills"   class="drawer-link">Skills</a>
+      <a href="#activity" class="drawer-link">Activity</a>
+      <a href="#contact"  class="drawer-link">Contact</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== PROFILE ========== -->
+    <section id="profile" class="profile-section">
+      <div class="wrap">
+        <div class="profile">
+          <a href="https://github.com/hinata1213-hinata"
+             target="_blank" rel="noopener" class="avatar-link">
+            <img
+              src="https://github.com/hinata1213-hinata.png"
+              alt="Hinata"
+              class="avatar"
+              width="96" height="96"
+            >
+          </a>
+          <h1 class="profile-name">Hinata</h1>
+          <div class="profile-links">
+            <a href="https://github.com/hinata1213-hinata"
+               class="plink plink--gh" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              hinata1213-hinata
+            </a>
+            <a href="mailto:hinata1213hinata@gmail.com" class="plink">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              hinata1213hinata@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WORKS ========== -->
+    <section id="works" class="section section--alt">
+      <div class="wrap">
+        <h2 class="sec-title reveal">Works</h2>
+        <div class="works-grid">
+
+          <!-- Nemoa -->
+          <article class="work-card reveal">
+            <header class="work-card-head">
+              <div class="work-top">
+                <h3 class="work-name">Nemoa</h3>
+              </div>
+              <span class="work-type">Mobile App</span>
+            </header>
+            <p class="work-desc">
+              QRコードをスキャンするだけでメモを瞬時に共有できるモバイルアプリ。URLなしでスマホ同士でもその場で内容を共有可能。
+            </p>
+            <div class="work-points">
+              <span class="points-label">工夫した点</span>
+              <ul>
+                <li>QRコードのリアルタイム生成でUXを向上</li>
+                <li>URLパラメータでサーバーレス構成を実現</li>
+              </ul>
+            </div>
+            <footer class="work-card-foot">
+              <ul class="work-tags">
+                <li>React Native</li>
+                <li>TypeScript</li>
+                <li>Expo</li>
+              </ul>
+              <div class="work-actions">
+                <a href="https://github.com/hinata1213-hinata/nemoa-share-notes"
+                   class="wbtn wbtn--gh" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  Source
+                </a>
+                <a href="#" class="wbtn wbtn--demo" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </footer>
+          </article>
+
+          <!-- 六刻巡旅 -->
+          <article class="work-card reveal">
+            <header class="work-card-head">
+              <div class="work-top">
+                <h3 class="work-name">六刻巡旅</h3>
+              </div>
+              <span class="work-type">Game &amp; Community</span>
+            </header>
+            <p class="work-desc">
+              Unityで制作した伝奇ホラーサウンドノベルゲームの公式ポータル。ゲーム紹介・配布ページと、PHPで構築したコミュニティ掲示板をあわせて制作。
+            </p>
+            <div class="work-points">
+              <span class="points-label">工夫した点</span>
+              <ul>
+                <li>UnityでADVゲーム本体のイベント・分岐・演出を実装</li>
+                <li>PHPとSQLiteでMVC構造の掲示板・通知システムを構築</li>
+              </ul>
+            </div>
+            <footer class="work-card-foot">
+              <ul class="work-tags">
+                <li>C#</li>
+                <li>Unity</li>
+                <li>JavaScript</li>
+                <li>PHP</li>
+                <li>SQLite</li>
+                <li>HTML / CSS</li>
+              </ul>
+              <div class="work-actions">
+                <a href="https://github.com/hinata1213-hinata/rokkoku-junryo-portal"
+                   class="wbtn wbtn--gh" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  Source
+                </a>
+                <a href="#" class="wbtn wbtn--demo" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Mini Action Shooter -->
+          <article class="work-card reveal">
+            <header class="work-card-head">
+              <div class="work-top">
+                <h3 class="work-name">Mini Action Shooter</h3>
+              </div>
+              <span class="work-type">Browser Game</span>
+            </header>
+            <p class="work-desc">
+              ブラウザのみで動作するHTML5製の2Dアクションシューティングゲーム。インストール不要で即プレイできる。
+            </p>
+            <div class="work-points">
+              <span class="points-label">工夫した点</span>
+              <ul>
+                <li>Canvas APIで描画パフォーマンスを最適化</li>
+                <li>衝突判定・スコア管理をゼロから実装</li>
+              </ul>
+            </div>
+            <footer class="work-card-foot">
+              <ul class="work-tags">
+                <li>HTML5 Canvas</li>
+                <li>JavaScript</li>
+                <li>CSS</li>
+              </ul>
+              <div class="work-actions">
+                <a href="https://github.com/hinata1213-hinata/mini-action-shooter"
+                   class="wbtn wbtn--gh" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  Source
+                </a>
+                <a href="#" class="wbtn wbtn--demo" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </footer>
+          </article>
+
+          <!-- Target Number Solver -->
+          <article class="work-card reveal">
+            <header class="work-card-head">
+              <div class="work-top">
+                <h3 class="work-name">Target Number Solver</h3>
+              </div>
+              <span class="work-type">Algorithm</span>
+            </header>
+            <p class="work-desc">
+              任意の数字と四則演算で目標値を導く探索プログラム。バックトラッキングと枝刈りで効率的に全解を探索する。
+            </p>
+            <div class="work-points">
+              <span class="points-label">工夫した点</span>
+              <ul>
+                <li>再帰的バックトラッキングで計算量を削減</li>
+                <li>重複解の除去と枝刈りを実装</li>
+              </ul>
+            </div>
+            <footer class="work-card-foot">
+              <ul class="work-tags">
+                <li>JavaScript</li>
+                <li>HTML / CSS</li>
+              </ul>
+              <div class="work-actions">
+                <a href="https://github.com/hinata1213-hinata/target-number-solver"
+                   class="wbtn wbtn--gh" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  Source
+                </a>
+                <a href="#" class="wbtn wbtn--demo" target="_blank" rel="noopener">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Demo
+                </a>
+              </div>
+            </footer>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section id="skills" class="section">
+      <div class="wrap">
+        <h2 class="sec-title reveal">Skills</h2>
+
+        <div class="skill-icons reveal">
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/csharp/csharp-original.svg" alt="C#" width="48" height="48">
+            <span>C#</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/javascript/javascript-original.svg" alt="JavaScript" width="48" height="48">
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/typescript/typescript-original.svg" alt="TypeScript" width="48" height="48">
+            <span>TypeScript</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/html5/html5-original.svg" alt="HTML5" width="48" height="48">
+            <span>HTML5</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/css3/css3-original.svg" alt="CSS3" width="48" height="48">
+            <span>CSS3</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/react/react-original.svg" alt="React Native" width="48" height="48">
+            <span>React Native</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/nodejs/nodejs-original.svg" alt="Node.js" width="48" height="48">
+            <span>Node.js</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/php/php-original.svg" alt="PHP" width="48" height="48">
+            <span>PHP</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/git/git-original.svg" alt="Git" width="48" height="48">
+            <span>Git</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/docker/docker-original.svg" alt="Docker" width="48" height="48">
+            <span>Docker</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/sqlite/sqlite-original.svg" alt="SQLite" width="48" height="48">
+            <span>SQLite</span>
+          </div>
+          <div class="skill-icon-item">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/unity/unity-original.svg" alt="Unity" width="48" height="48">
+            <span>Unity</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ACTIVITY ========== -->
+    <section id="activity" class="section section--alt">
+      <div class="wrap">
+        <h2 class="sec-title reveal">Activity</h2>
+        <p class="activity-sub reveal">GitHub</p>
+        <ul class="activity-list">
+
+          <li class="activity-item reveal">
+            <div class="activity-head">
+              <a href="https://github.com/hinata1213-hinata/nemoa-share-notes"
+                 class="activity-name" target="_blank" rel="noopener">nemoa-share-notes</a>
+
+            </div>
+            <p class="activity-desc">QRコードで簡単に共有できるメモアプリ</p>
+            <ul class="activity-tags">
+              <li>● React Native</li>
+              <li>● TypeScript</li>
+            </ul>
+          </li>
+
+          <li class="activity-item reveal">
+            <div class="activity-head">
+              <a href="https://github.com/hinata1213-hinata/rokkoku-junryo-portal"
+                 class="activity-name" target="_blank" rel="noopener">rokkoku-junryo-portal</a>
+
+            </div>
+            <p class="activity-desc">サウンドノベルゲーム + コミュニティサイト</p>
+            <ul class="activity-tags">
+              <li>● JavaScript</li>
+              <li>● PHP</li>
+            </ul>
+          </li>
+
+          <li class="activity-item reveal">
+            <div class="activity-head">
+              <a href="https://github.com/hinata1213-hinata/mini-action-shooter"
+                 class="activity-name" target="_blank" rel="noopener">mini-action-shooter</a>
+
+            </div>
+            <p class="activity-desc">ブラウザで遊べる2Dアクションシューティングゲーム</p>
+            <ul class="activity-tags">
+              <li>● HTML5 Canvas</li>
+              <li>● JavaScript</li>
+              <li>● CSS</li>
+            </ul>
+          </li>
+
+          <li class="activity-item reveal">
+            <div class="activity-head">
+              <a href="https://github.com/hinata1213-hinata/target-number-solver"
+                 class="activity-name" target="_blank" rel="noopener">target-number-solver</a>
+
+            </div>
+            <p class="activity-desc">数字と演算を用いて目標数値を作る探索プログラム</p>
+            <ul class="activity-tags">
+              <li>● JavaScript</li>
+              <li>● HTML / CSS</li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="contact" class="footer">
+    <div class="wrap">
+      <div class="footer-inner reveal">
+        <p class="footer-copy">© Hinata</p>
+        <div class="footer-links">
+          <a href="https://github.com/hinata1213-hinata" target="_blank" rel="noopener" class="footer-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="mailto:hinata1213hinata@gmail.com" class="footer-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
