@@ -1,50 +1,64 @@
-# Welcome to your Expo app 👋
+# nemoa — QRコードメモ共有アプリ
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**制作時期：** 大学3年生〜現在（個人制作）
 
-## Get started
+## 概要
 
-1. Install dependencies
+メモをQRコードとして生成・保存・共有できる iOS / Android 対応のモバイルアプリです。  
+テスト情報・時間割・宿題などをQRコード化することで、友人との情報共有をすぐに行えることを目指して開発しました。
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## 起動方法
 
 ```bash
-npm run reset-project
+# 依存パッケージのインストール
+npm install
+
+# 開発サーバーの起動
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+起動後、Expo Go アプリ（iOS / Android）でQRコードをスキャンするか、シミュレーターで確認できます。
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## 機能
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### メモ管理
+- メモの作成・編集・削除
+- テスト・時間割・宿題・ノートなど、カテゴリ別の分類
+- カテゴリフィルタータブによるメモの絞り込み
+- センシティブコンテンツの自動検出と伏せ字表示
 
-## Join the community
+### QRコード
+- メモ内容をQRコードとして生成
+- QRコードをカード画像として写真に保存
+- カメラによるQRコードスキャンとメモの読み取り・保存
 
-Join our community of developers creating universal apps.
+### その他
+- ダークモード対応
+- センシティブコンテンツのスキャンブロック設定
+- 触覚フィードバック（Haptics）
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 使用技術
+
+- **React Native (Expo)** — iOS / Android 両対応のクロスプラットフォーム開発
+- **TypeScript** — 型安全な実装
+- **Expo Router** — ファイルベースルーティング
+- **expo-camera** — カメラアクセスとQRコードスキャン
+- **expo-media-library** — QRコード画像のカメラロール保存
+- **react-native-qrcode-svg** — QRコード生成
+- **AsyncStorage** — ローカルデータ永続化
+
+---
+
+## 工夫した点
+
+- iOS・Android それぞれのカメラ・メディアライブラリ権限を適切に申請・ハンドリングし、ユーザーに分かりやすい許可説明文を設定した
+- QRコード画像の保存時は、QRコードの PNG をいったんキャプチャしてから SVG 合成カードに埋め込み、メタ情報付きの画像として書き出す2ステップ処理を実装した
+- センシティブなコンテンツを検出し、一覧画面・QR画面・スキャンプレビューのそれぞれでモザイク・伏せ字表示に切り替える機能を実装した
+- Expo Router のファイルベースルーティングを採用し、ページ追加・変更を容易にする構成を意識した
+- React Compiler（実験的機能）を採用し、不要な再レンダリングの抑制を検証した
