@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>数式を作るプログラム</title>
+</head>
+<body>
+    <h1>数式パズル</h1>
+    <p>数字と合計を入力してください</p>
+    <label for="numbers">数字（カンマ区切り）:</label>
+    <input type="text" id="numbers" placeholder="例: 1,6,8,8">
+    <label for="target">合計:</label>
+    <input type="number" id="target" placeholder="例: 18">
+    <button onclick="solve()">解答</button>
+    <button onclick="reset()">リセット</button>
+    <p id="result"></p>
+
+    <script>
+        function solve() {
+            let numbers = document.getElementById("numbers").value.split(',').map(Number);
+            let target = parseInt(document.getElementById("target").value);
+            let result = findExpression(numbers, target);
+            document.getElementById("result").innerText = result ? result : "不可能です";
+        }
+
+        function reset() {
+            document.getElementById("numbers").value = '';
+            document.getElementById("target").value = '';
+            document.getElementById("result").innerText = '';
+        }
+
+        function findExpression(numbers, target) {
+            let operators = ['+', '-', '*', '/'];
+            let n = numbers.length;
+
+            function permute(arr) {
+                let results = [];
+                if (arr.length === 1) {
+                    return [arr];
+                }
+                for (let i = 0; i < arr.length; i++) {
+                    let currentNum = arr.splice(i, 1);
+                    let remainingNums = permute(arr.slice());
+                    for (let j = 0; j < remainingNums.length; j++) {
+                        results.push(currentNum.concat(remainingNums[j]));
+                    }
+                    arr.splice(i, 0, currentNum[0]);
+                }
+                return results;
+            }
+
+            function helper(nums, exprs) {
+                if (nums.length === 1) {
+                    if (Math.abs(nums[0] - target) < 1e-9) {
+                        return exprs[0];
+                    }
+                    return null;
+                }
+
+                for (let i = 0; i < nums.length; i++) {
+                    for (let j = 0; j < nums.length; j++) {
+                        if (i !== j) {
+                            let remainingNums = nums.filter((_, index) => index !== i && index !== j);
+                            let remainingExprs = exprs.filter((_, index) => index !== i && index !== j);
+
+                            for (let operator of operators) {
+                                let newNum, newExpr;
+                                switch (operator) {
+                                    case '+':
+                                        newNum = nums[i] + nums[j];
+                                        newExpr = `(${exprs[i]}+${exprs[j]})`;
+                                        break;
+                                    case '-':
+                                        newNum = nums[i] - nums[j];
+                                        newExpr = `(${exprs[i]}-${exprs[j]})`;
+                                        break;
+                                    case '*':
+                                        newNum = nums[i] * nums[j];
+                                        newExpr = `(${exprs[i]}*${exprs[j]})`;
+                                        break;
+                                    case '/':
+                                        if (nums[j] === 0) continue;
+                                        newNum = nums[i] / nums[j];
+                                        newExpr = `(${exprs[i]}/${exprs[j]})`;
+                                        break;
+                                }
+
+                                let result = helper([...remainingNums, newNum], [...remainingExprs, newExpr]);
+                                if (result) return result;
+                            }
+                        }
+                    }
+                }
+                return null;
+            }
+
+            let permutations = permute(numbers);
+            for (let perm of permutations) {
+                let exprs = perm.map(num => num.toString());
+                let result = helper(perm, exprs);
+                if (result) {
+                    return result;
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>
