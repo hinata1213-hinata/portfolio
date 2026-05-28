@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gittokun</title>
+    <style>
+        canvas {
+            background: #000;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    
+    <audio id="bgm" src="BGM/StageBGM.mp4" loop></audio>
+    <audio id="gameOverSound" src="BGM/sisu2.mp4" preload="auto"></audio>
+    <audio id="gameClearSound" src="BGM/clear.mp4" preload="auto"></audio>
+    <audio id="shootSound" src="BGM/juu.mp4" preload="auto"></audio>
+    <audio id="jumpSound1" src="BGM/janp1.mp4" preload="auto"></audio>
+    <audio id="jumpSound2" src="BGM/janp2.mp4" preload="auto"></audio>
+    <audio id="hariSound" src="BGM/hari.mp4" preload="auto"></audio>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script src="game.js"></script>
+    
+</body>
+</html>
