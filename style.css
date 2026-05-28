@@ -293,7 +293,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .work-desc small {
   font-size: 11.5px;
-  color: var(--faint);
+  color: var(--muted);
 }
 
 .work-points { font-size: 13px; }
