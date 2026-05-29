@@ -64,7 +64,7 @@ brew install composer
 
 ```bash
 cd community
-composer install
+composer update
 ```
 
 **④ config.php を作成**
