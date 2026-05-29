@@ -15,9 +15,22 @@
 
 `game.html` をブラウザで直接開く。
 
-### コミュニティ掲示板（PHP が必要）
+### コミュニティ掲示板（ローカル起動）
 
 > **注意：** コミュニティ掲示板は PHP / SQLite で動作するため、GitHub Pages 上では閲覧できません。ローカル環境で起動してください。
+
+#### Docker を使う場合（推奨）
+
+PHP・Composer のインストール不要。
+
+```bash
+docker build -t rokkoku .
+docker run -p 8000:8000 rokkoku
+```
+
+ブラウザで `http://localhost:8000/community/` を開く。
+
+#### PHP を直接使う場合
 
 **① PHP をインストール（Mac / Homebrew）**
 
@@ -51,11 +64,7 @@ cd ..
 php -S localhost:8000
 ```
 
-**⑥ ブラウザで開く**
-
-```
-http://localhost:8000/community/
-```
+ブラウザで `http://localhost:8000/community/` を開く。
 
 ---
 
