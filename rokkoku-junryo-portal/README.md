@@ -66,13 +66,7 @@ cd community
 composer update
 ```
 
-**④ config.php を作成**
-
-```bash
-cp config.php.template config/config.php
-```
-
-**⑤ サーバーを起動**
+**④ サーバーを起動**
 
 ```bash
 cd ..
