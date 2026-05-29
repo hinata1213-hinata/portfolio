@@ -37,7 +37,7 @@ docker run -d -p 8000:8000 rokkoku
 
 **③ ブラウザで開く**
 
-- `http://localhost:8000/community/index.php`
+- `http://localhost:8000/community/rooms/index.php`
 
 **④ 停止する場合**
 
@@ -73,7 +73,7 @@ cd ..
 php -S localhost:8000
 ```
 
-ブラウザで `http://localhost:8000/community/index.php` を開く。
+ブラウザで `http://localhost:8000/community/rooms/index.php` を開く。
 
 ---
 
