@@ -37,8 +37,8 @@ docker run -d -p 8000:8000 rokkoku
 
 **③ ブラウザで開く**
 
-- ログインページ: `http://localhost:8000/community/auth/login.php`
-- 掲示板トップ: `http://localhost:8000/community/rooms/index.php`
+- ログインページ: `http://localhost:8000/community/index.phpauth/login.php`
+- 掲示板トップ: `http://localhost:8000/community/index.phprooms/index.php`
 
 **④ 停止する場合**
 
@@ -80,7 +80,7 @@ cd ..
 php -S localhost:8000
 ```
 
-ブラウザで `http://localhost:8000/community/` を開く。
+ブラウザで `http://localhost:8000/community/index.php` を開く。
 
 ---
 
