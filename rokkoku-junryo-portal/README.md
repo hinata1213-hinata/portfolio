@@ -23,7 +23,10 @@
 
 > **備考：** Docker は元々このプロジェクトで使用していませんでした。ローカル環境でも簡単に動作確認できるよう、ポートフォリオとして公開するにあたり導入しました。
 
-PHP・Composer のインストール不要。
+PHP・Composer のインストール不要。Docker Desktop をインストールして起動しておいてください。
+
+- Mac: https://docs.docker.com/desktop/install/mac-install/
+- Windows: https://docs.docker.com/desktop/install/windows-install/
 
 **① イメージをビルド**
 
