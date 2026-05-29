@@ -23,12 +23,28 @@
 
 PHP・Composer のインストール不要。
 
+**① イメージをビルド**
+
 ```bash
 docker build -t rokkoku .
-docker run -p 8000:8000 rokkoku
 ```
 
-ブラウザで `http://localhost:8000/community/` を開く。
+**② バックグラウンドで起動**
+
+```bash
+docker run -d -p 8000:8000 rokkoku
+```
+
+**③ ブラウザで開く**
+
+- ログインページ: `http://localhost:8000/community/auth/login.php`
+- 掲示板トップ: `http://localhost:8000/community/rooms/index.php`
+
+**④ 停止する場合**
+
+```bash
+docker stop $(docker ps -q --filter ancestor=rokkoku)
+```
 
 #### PHP を直接使う場合
 

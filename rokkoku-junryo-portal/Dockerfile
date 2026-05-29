@@ -12,7 +12,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN cd community && composer install --no-dev --optimize-autoloader
+RUN cd community && composer update --no-dev --optimize-autoloader
 
 EXPOSE 8000
 
