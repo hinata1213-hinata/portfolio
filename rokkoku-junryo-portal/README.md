@@ -17,16 +17,45 @@
 
 ### コミュニティ掲示板（PHP が必要）
 
-1. PHP がインストールされていることを確認する
-2. プロジェクトのルートディレクトリで以下を実行する
+> **注意：** コミュニティ掲示板は PHP / SQLite で動作するため、GitHub Pages 上では閲覧できません。ローカル環境で起動してください。
+
+**① PHP をインストール（Mac / Homebrew）**
 
 ```bash
+brew install php
+```
+
+**② Composer をインストール**
+
+```bash
+brew install composer
+```
+
+**③ 依存パッケージをインストール**
+
+```bash
+cd community
+composer install
+```
+
+**④ config.php を作成**
+
+```bash
+cp config.php.template config/config.php
+```
+
+**⑤ サーバーを起動**
+
+```bash
+cd ..
 php -S localhost:8000
 ```
 
-3. ブラウザで `http://localhost:8000/community/` を開く
+**⑥ ブラウザで開く**
 
-> **注意：** コミュニティ掲示板は PHP / SQLite で動作するため、GitHub Pages 上では閲覧できません。
+```
+http://localhost:8000/community/
+```
 
 ---
 
