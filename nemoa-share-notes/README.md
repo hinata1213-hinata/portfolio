@@ -21,6 +21,9 @@ npx expo start
 
 起動後、Expo Go アプリ（iOS / Android）でQRコードをスキャンするか、シミュレーターで確認できます。
 
+- iOS: https://apps.apple.com/app/expo-go/id982107779
+- Android: https://play.google.com/store/apps/details?id=host.exp.exponent
+
 ---
 
 ## 機能
