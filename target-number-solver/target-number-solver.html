@@ -2,105 +2,207 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>数式を作るプログラム</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数式パズルソルバー</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 480px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: #f5f5f5;
+            color: #222;
+        }
+        h1 { font-size: 1.4rem; margin-bottom: 6px; }
+        p.desc { color: #666; font-size: 0.9rem; margin-bottom: 24px; }
+
+        .field { margin-bottom: 20px; }
+        label { display: block; font-size: 0.85rem; font-weight: bold; margin-bottom: 8px; }
+
+        #numBoxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .num-box {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .num-box input {
+            width: 60px;
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .btn-remove {
+            background: #e0e0e0;
+            border: none;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .btn-remove:hover { background: #f88; }
+
+        #btnAdd {
+            padding: 8px 14px;
+            background: #ddd;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        #btnAdd:hover { background: #ccc; }
+
+        #target {
+            padding: 8px 12px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 120px;
+        }
+
+        .actions { display: flex; gap: 10px; margin-top: 24px; }
+        .btn-primary {
+            padding: 10px 24px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .btn-primary:hover { background: #555; }
+        .btn-secondary {
+            padding: 10px 24px;
+            background: #e0e0e0;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .btn-secondary:hover { background: #ccc; }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            min-height: 1.5em;
+        }
+    </style>
 </head>
 <body>
-    <h1>数式パズル</h1>
-    <p>数字と合計を入力してください</p>
-    <label for="numbers">数字（カンマ区切り）:</label>
-    <input type="text" id="numbers" placeholder="例: 1,6,8,8">
-    <label for="target">合計:</label>
-    <input type="number" id="target" placeholder="例: 18">
-    <button onclick="solve()">解答</button>
-    <button onclick="reset()">リセット</button>
+    <h1>数式パズルソルバー</h1>
+    <p class="desc">使用する数字を入力し、目標の合計を指定してください。</p>
+
+    <div class="field">
+        <label>数字</label>
+        <div id="numBoxes">
+            <div class="num-box"><input type="number" class="num-input"><button class="btn-remove" onclick="removeBox(this)">×</button></div>
+            <div class="num-box"><input type="number" class="num-input"><button class="btn-remove" onclick="removeBox(this)">×</button></div>
+            <div class="num-box"><input type="number" class="num-input"><button class="btn-remove" onclick="removeBox(this)">×</button></div>
+            <div class="num-box"><input type="number" class="num-input"><button class="btn-remove" onclick="removeBox(this)">×</button></div>
+            <button id="btnAdd" onclick="addBox()">＋</button>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="target">目標の合計</label>
+        <input type="number" id="target" placeholder="例: 18">
+    </div>
+
+    <div class="actions">
+        <button class="btn-primary" onclick="solve()">解答する</button>
+        <button class="btn-secondary" onclick="resetAll()">リセット</button>
+    </div>
+
     <p id="result"></p>
 
     <script>
-        function solve() {
-            let numbers = document.getElementById("numbers").value.split(',').map(Number);
-            let target = parseInt(document.getElementById("target").value);
-            let result = findExpression(numbers, target);
-            document.getElementById("result").innerText = result ? result : "不可能です";
+        function addBox() {
+            const container = document.getElementById('numBoxes');
+            const btn = document.getElementById('btnAdd');
+            const box = document.createElement('div');
+            box.className = 'num-box';
+            box.innerHTML = '<input type="number" class="num-input"><button class="btn-remove" onclick="removeBox(this)">×</button>';
+            container.insertBefore(box, btn);
         }
 
-        function reset() {
-            document.getElementById("numbers").value = '';
-            document.getElementById("target").value = '';
-            document.getElementById("result").innerText = '';
+        function removeBox(btn) {
+            const boxes = document.querySelectorAll('.num-box');
+            if (boxes.length <= 1) return;
+            btn.parentElement.remove();
+        }
+
+        function solve() {
+            const inputs = document.querySelectorAll('.num-input');
+            const numbers = [...inputs]
+                .map(i => parseFloat(i.value))
+                .filter(n => !isNaN(n));
+            const target = parseFloat(document.getElementById('target').value);
+            const resultEl = document.getElementById('result');
+
+            if (numbers.length === 0 || isNaN(target)) {
+                resultEl.textContent = '数字と合計を入力してください';
+                return;
+            }
+
+            const result = findExpression(numbers, target);
+            resultEl.textContent = result ? result : '不可能です';
+        }
+
+        function resetAll() {
+            document.querySelectorAll('.num-input').forEach(i => i.value = '');
+            document.getElementById('target').value = '';
+            document.getElementById('result').textContent = '';
         }
 
         function findExpression(numbers, target) {
-            let operators = ['+', '-', '*', '/'];
-            let n = numbers.length;
+            const operators = ['+', '-', '*', '/'];
 
             function permute(arr) {
-                let results = [];
-                if (arr.length === 1) {
-                    return [arr];
-                }
+                if (arr.length === 1) return [arr];
+                const results = [];
                 for (let i = 0; i < arr.length; i++) {
-                    let currentNum = arr.splice(i, 1);
-                    let remainingNums = permute(arr.slice());
-                    for (let j = 0; j < remainingNums.length; j++) {
-                        results.push(currentNum.concat(remainingNums[j]));
-                    }
-                    arr.splice(i, 0, currentNum[0]);
+                    const cur = arr.splice(i, 1);
+                    permute(arr.slice()).forEach(rest => results.push(cur.concat(rest)));
+                    arr.splice(i, 0, cur[0]);
                 }
                 return results;
             }
 
             function helper(nums, exprs) {
                 if (nums.length === 1) {
-                    if (Math.abs(nums[0] - target) < 1e-9) {
-                        return exprs[0];
-                    }
-                    return null;
+                    return Math.abs(nums[0] - target) < 1e-9 ? exprs[0] : null;
                 }
-
                 for (let i = 0; i < nums.length; i++) {
                     for (let j = 0; j < nums.length; j++) {
-                        if (i !== j) {
-                            let remainingNums = nums.filter((_, index) => index !== i && index !== j);
-                            let remainingExprs = exprs.filter((_, index) => index !== i && index !== j);
-
-                            for (let operator of operators) {
-                                let newNum, newExpr;
-                                switch (operator) {
-                                    case '+':
-                                        newNum = nums[i] + nums[j];
-                                        newExpr = `(${exprs[i]}+${exprs[j]})`;
-                                        break;
-                                    case '-':
-                                        newNum = nums[i] - nums[j];
-                                        newExpr = `(${exprs[i]}-${exprs[j]})`;
-                                        break;
-                                    case '*':
-                                        newNum = nums[i] * nums[j];
-                                        newExpr = `(${exprs[i]}*${exprs[j]})`;
-                                        break;
-                                    case '/':
-                                        if (nums[j] === 0) continue;
-                                        newNum = nums[i] / nums[j];
-                                        newExpr = `(${exprs[i]}/${exprs[j]})`;
-                                        break;
-                                }
-
-                                let result = helper([...remainingNums, newNum], [...remainingExprs, newExpr]);
-                                if (result) return result;
-                            }
+                        if (i === j) continue;
+                        const remNums = nums.filter((_, k) => k !== i && k !== j);
+                        const remExprs = exprs.filter((_, k) => k !== i && k !== j);
+                        for (const op of operators) {
+                            let newNum, newExpr;
+                            if (op === '+') { newNum = nums[i] + nums[j]; newExpr = `(${exprs[i]}+${exprs[j]})`; }
+                            else if (op === '-') { newNum = nums[i] - nums[j]; newExpr = `(${exprs[i]}-${exprs[j]})`; }
+                            else if (op === '*') { newNum = nums[i] * nums[j]; newExpr = `(${exprs[i]}*${exprs[j]})`; }
+                            else { if (nums[j] === 0) continue; newNum = nums[i] / nums[j]; newExpr = `(${exprs[i]}/${exprs[j]})`; }
+                            const res = helper([...remNums, newNum], [...remExprs, newExpr]);
+                            if (res) return res;
                         }
                     }
                 }
                 return null;
             }
 
-            let permutations = permute(numbers);
-            for (let perm of permutations) {
-                let exprs = perm.map(num => num.toString());
-                let result = helper(perm, exprs);
-                if (result) {
-                    return result;
-                }
+            for (const perm of permute(numbers)) {
+                const res = helper(perm, perm.map(String));
+                if (res) return res;
             }
             return null;
         }
