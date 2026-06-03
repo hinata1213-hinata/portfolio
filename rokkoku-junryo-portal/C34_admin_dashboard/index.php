@@ -1,8 +1,16 @@
 <?php
 session_start();
 
-// 管理者パスワード（実際の運用では環境変数や別ファイルで管理することを推奨）
-define('ADMIN_PASSWORD', 'admin2025C34');
+$env_file = __DIR__ . '/../.env';
+if (file_exists($env_file)) {
+    foreach (file($env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        if ($line[0] !== '#' && str_contains($line, '=')) {
+            [$k, $v] = explode('=', $line, 2);
+            putenv(trim($k) . '=' . trim($v));
+        }
+    }
+}
+define('ADMIN_PASSWORD', getenv('ADMIN_PASSWORD'));
 
 $error_message = '';
 $success_message = '';
