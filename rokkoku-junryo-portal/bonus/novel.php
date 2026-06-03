@@ -1,7 +1,16 @@
 <?php
 session_start();
 
-$correct_password = 'IRR';
+$env_file = __DIR__ . '/../.env';
+if (file_exists($env_file)) {
+    foreach (file($env_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        if ($line[0] !== '#' && str_contains($line, '=')) {
+            [$k, $v] = explode('=', $line, 2);
+            putenv(trim($k) . '=' . trim($v));
+        }
+    }
+}
+$correct_password = getenv('NOVEL_PASSWORD');
 $error_message = '';
 $is_authenticated = false;
 
