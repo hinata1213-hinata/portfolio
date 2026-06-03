@@ -154,13 +154,30 @@
             }
 
             const result = findExpression(numbers, target);
-            resultEl.textContent = result ? result : '不可能です';
+            resultEl.textContent = result ? formatExpr(result) : '不可能です';
         }
 
         function resetAll() {
             document.querySelectorAll('.num-input').forEach(i => i.value = '');
             document.getElementById('target').value = '';
             document.getElementById('result').textContent = '';
+        }
+
+        function stripOuterParens(expr) {
+            if (expr[0] !== '(' || expr[expr.length - 1] !== ')') return expr;
+            let depth = 0;
+            for (let i = 0; i < expr.length - 1; i++) {
+                if (expr[i] === '(') depth++;
+                else if (expr[i] === ')') depth--;
+                if (depth === 0) return expr;
+            }
+            return expr.slice(1, -1);
+        }
+
+        function formatExpr(expr) {
+            return stripOuterParens(expr)
+                .replace(/\*/g, '×')
+                .replace(/\//g, '÷');
         }
 
         function findExpression(numbers, target) {
