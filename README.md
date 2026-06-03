@@ -181,4 +181,4 @@ HTML5 Canvas と JavaScript のみで実装したブラウザ上で動作する2
 | フロントエンド | HTML5, CSS3, JavaScript |
 | バックエンド | PHP, SQLite |
 | ゲームエンジン | Unity (C#) |
-| その他 | Composer, BladeOne, Git |
+| その他 | Composer, BladeOne, Git, Docker |
