@@ -101,17 +101,23 @@ export default function MemoEditScreen() {
       router.back();
       return;
     }
+    const runDelete = async () => {
+      await deleteMemo(memo.id);
+      await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+      router.back();
+    };
+
+    // Web では Alert.alert の複数ボタンが動かないため window.confirm を使う
+    if (Platform.OS === 'web') {
+      if (window.confirm('このメモを削除します')) {
+        runDelete();
+      }
+      return;
+    }
+
     Alert.alert('削除しますか？', 'このメモを削除します', [
       { text: 'キャンセル', style: 'cancel' },
-      {
-        text: '削除',
-        style: 'destructive',
-        onPress: async () => {
-          await deleteMemo(memo.id);
-          await Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
-          router.back();
-        },
-      },
+      { text: '削除', style: 'destructive', onPress: runDelete },
     ]);
   }
 
