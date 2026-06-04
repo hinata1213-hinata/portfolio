@@ -132,7 +132,7 @@ export default function QRScanScreen() {
 
   if (!permission.granted) {
     return (
-      <View style={[styles.permContainer, { paddingTop: insets.top + Spacing.xxl }]}>
+      <View style={[styles.permContainer, { paddingTop: insets.top }]}>
         <View style={styles.permIcon}>
           <Ionicons name="camera-outline" size={48} color={AppColors.primary} />
         </View>
@@ -405,6 +405,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColors.bg,
     alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: Spacing.xl,
     gap: Spacing.md,
   },

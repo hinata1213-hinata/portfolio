@@ -324,6 +324,7 @@ function MemoCard({
 function EmptyState({
   filter, onNew, onScan,
 }: { filter: MemoCategory | 'all'; onNew: () => void; onScan: () => void }) {
+  const { colors } = useSettings();
   const isFiltered = filter !== 'all';
   const cfg = isFiltered ? getCategoryConfig(filter as MemoCategory) : null;
 
@@ -332,10 +333,10 @@ function EmptyState({
       <View style={[styles.emptyIconWrap, { backgroundColor: cfg ? cfg.bgColor : AppColors.divider }]}>
         <Ionicons name={cfg ? (cfg.icon as any) : 'document-outline'} size={36} color={cfg ? cfg.color : AppColors.textMuted} />
       </View>
-      <Text style={styles.emptyTitle}>
+      <Text style={[styles.emptyTitle, { color: colors.textPrimary }]}>
         {isFiltered ? `${cfg!.label}のメモがありません` : 'メモがありません'}
       </Text>
-      <Text style={styles.emptyText}>
+      <Text style={[styles.emptyText, { color: colors.textSecondary }]}>
         {isFiltered
           ? `${cfg!.label}を作成してQRコードで共有しよう`
           : 'テスト情報・時間割・宿題をQRコードで友達とすぐに共有できます'}
@@ -523,6 +524,7 @@ const styles = StyleSheet.create({
   },
   pickerCard: {
     flex: 1,
+    minWidth: 0,
     borderRadius: Radius.lg,
     padding: Spacing.md,
     gap: Spacing.xs,
