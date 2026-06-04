@@ -234,6 +234,45 @@ button { font-family: inherit; cursor: pointer; }
 .plink--gh:hover { color: var(--accent); border-color: var(--accent); }
 
 /* ================================================
+   About
+   ================================================ */
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.about-card:hover {
+  border-color: var(--border-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--mono);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.about-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+.about-card p:last-child { margin-bottom: 0; }
+
+/* ================================================
    Works — 2×2 grid
    ================================================ */
 .works-grid {
