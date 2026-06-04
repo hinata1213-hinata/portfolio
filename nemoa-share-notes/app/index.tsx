@@ -9,6 +9,7 @@ import {
   Animated,
   Modal,
   Pressable,
+  Platform,
 } from 'react-native';
 import { useFocusEffect, router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -89,16 +90,23 @@ export default function HomeScreen() {
 
   function confirmDelete(id: string, title: string) {
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Warning);
+
+    const runDelete = async () => {
+      await deleteMemo(id);
+      await loadMemos();
+    };
+
+    // Web では Alert.alert の複数ボタンが動かないため window.confirm を使う
+    if (Platform.OS === 'web') {
+      if (window.confirm(`「${title || '無題'}」を削除します`)) {
+        runDelete();
+      }
+      return;
+    }
+
     Alert.alert('削除しますか？', `「${title || '無題'}」を削除します`, [
       { text: 'キャンセル', style: 'cancel' },
-      {
-        text: '削除',
-        style: 'destructive',
-        onPress: async () => {
-          await deleteMemo(id);
-          await loadMemos();
-        },
-      },
+      { text: '削除', style: 'destructive', onPress: runDelete },
     ]);
   }
 
