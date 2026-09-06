@@ -145,12 +145,6 @@
     transition: width .08s linear;
   }
 
-  .hint {
-    margin-top: 12px;
-    color: rgba(255,255,255,.72);
-    font-size: 13px;
-  }
-
   .controls {
     position: absolute;
     top: calc(92px + env(safe-area-inset-top, 0px));
@@ -246,10 +240,6 @@
   const speedBtn = document.getElementById("speed");
   const pointsEl = document.getElementById("points");
   const barEl = document.getElementById("bar");
-  const hintEl = document.getElementById("hint");
-
-  // ヒント表示は無くても動くようにしておく
-  const setHint = text => { if (hintEl) hintEl.textContent = text; };
   const doneEl = document.getElementById("done");
 
   let W = 0, H = 0, dpr = 1;
@@ -466,13 +456,6 @@
     ctx.globalAlpha = 1;
   }
 
-  function hintFor(t) {
-    if (t < .25) return "ぼんやり… 何が写っているかな？";
-    if (t < .5)  return "だんだん形が見えてきました";
-    if (t < .8)  return "もうすぐピントが合います";
-    return "仕上げ中！";
-  }
-
   function loop(now) {
     if (!running) return;
 
@@ -485,13 +468,11 @@
     barEl.style.width = percent + "%";
     // 早く分かるほど高得点。5→4→3→2→1 と整数で下がる。
     pointsEl.textContent = Math.max(1, 5 - Math.floor(t * 5)) + " Pts";
-    setHint(hintFor(t));
 
     if (t >= 1) {
       running = false;
       draw(1);
       pointsEl.textContent = "0 Pts";
-      setHint("完成！");
       doneEl.classList.add("show");
       return;
     }
@@ -507,7 +488,6 @@
     startTime = performance.now();
     barEl.style.width = "0%";
     pointsEl.textContent = "5 Pts";
-    setHint(hintFor(0));
     raf = requestAnimationFrame(loop);
   }
 
